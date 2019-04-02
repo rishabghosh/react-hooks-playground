@@ -18,7 +18,7 @@ const HookBasedCounter = function() {
       <div>{state}</div>
       <button onClick={() => setState(state + 1)}>Increment</button>
       <button onClick={decrementState}>Decrement</button>
-      <button onClick={()=> setState(INITIAL_COUNTING_VALUE)}>Reset</button>
+      <button onClick={() => setState(INITIAL_COUNTING_VALUE)}>Reset</button>
     </main>
   );
 };
@@ -62,5 +62,4 @@ class ClassBasedCounter extends React.Component {
   }
 }
 
-export {ClassBasedCounter, HookBasedCounter}
-
+export { ClassBasedCounter, HookBasedCounter };
