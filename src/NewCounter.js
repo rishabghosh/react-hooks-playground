@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 const INITIAL_COUNTING_VALUE = 0;
 const COLOURS = { green: "green", red: "red" };
 
-
-
 const NewCounter = function() {
   /**
    *  calling useState with a value will return a array
@@ -17,20 +15,13 @@ const NewCounter = function() {
   /** the states to watch is put in watch list */
   const watchList = [count];
 
-  /** similar to ComponentDidMount method */
-  const setUp = function(count, color) {
-    console.log(`current value of color: ${color}, count: ${count}`);
-  };
-
-  /** similarTo ComponentWillUnMount method*/
-  const tearDown = function(count, color) {
-    console.log(`previous value of color: ${color}, count: ${count}`);
-  };
-
-  /** to run the setUp and tearDown */
+  /**
+   *  @setUp is similar to componentDidMount
+   *  @tearDown is similar to componentWillUnmount
+   */
   const runOnChange = function() {
-    setUp(count, color);
-    return () => tearDown(count, color);
+    CounterUtil.setUp(count, color);
+    return () => CounterUtil.tearDown(count, color);
   };
 
   /**
@@ -71,5 +62,15 @@ const NewCounter = function() {
     </main>
   );
 };
+
+class CounterUtil {
+  static setUp(count, color) {
+    console.log(`current value of color: ${color}, count: ${count}`);
+  }
+
+  static tearDown(count, color) {
+    console.log(`previous value of color: ${color}, count: ${count}`);
+  }
+}
 
 export default NewCounter;

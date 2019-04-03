@@ -5,13 +5,14 @@ import NewCounter from "./NewCounter.js";
 import OldCounter from "./OldCounter.js"
 import Address from "./Address.js"
 import UserForm from "./UserForm.js"
+import App from "./App";
 
 import "./index.css";
 
 import * as serviceWorker from "./serviceWorker";
 
 
-ReactDOM.render(<UserForm />, document.getElementById("root"));
+ReactDOM.render(<NewCounter />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
