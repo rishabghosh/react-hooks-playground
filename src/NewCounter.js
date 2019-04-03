@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 const INITIAL_COUNTING_VALUE = 0;
 const COLOURS = { green: "green", red: "red" };
 
+
+
 const NewCounter = function() {
-  /** 
+  /**
    *  calling useState with a value will return a array
    *  first element is the current value of the state
    *  and second element is a function to change or set the value
@@ -31,7 +33,7 @@ const NewCounter = function() {
     return () => tearDown(count, color);
   };
 
-  /** 
+  /**
    *  @arg1 takes a callback function
    *  the callback function invokes setUp function
    *  and it can also return a function which will invoke the tearDown function
