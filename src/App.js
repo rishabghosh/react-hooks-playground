@@ -6,24 +6,25 @@ const INITIAL_COUNTING_VALUE = 0;
 const HookBasedCounter = function() {
   //calling useState with a value will return a array
   //one element is the current value and other is a function to change the value
-  const [state, setState] = useState(INITIAL_COUNTING_VALUE);
+  const [count, setCount] = useState(INITIAL_COUNTING_VALUE);
 
-  const decrementState = function() {
-    if (state <= 0) return;
-    setState(state - 1);
+  const handleDecrement = function() {
+    if (count <= 0) return;
+    setCount(count - 1);
   };
+
+  const handleIncrement = () => setCount(count + 1);
+  const handleReset = () => setCount(INITIAL_COUNTING_VALUE);
 
   return (
     <main>
-      <div>{state}</div>
-      <button onClick={() => setState(state + 1)}>Increment</button>
-      <button onClick={decrementState}>Decrement</button>
-      <button onClick={() => setState(INITIAL_COUNTING_VALUE)}>Reset</button>
+      <div>{count}</div>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
+      <button onClick={handleReset}>Reset</button>
     </main>
   );
 };
-
-
 
 class ClassBasedCounter extends React.Component {
   constructor(props) {
